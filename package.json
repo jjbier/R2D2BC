@@ -38,7 +38,7 @@
     "mark.js": "^8.11.1",
     "pdfjs-dist": "2.14.305",
     "promise-polyfill": "^8.2.0",
-    "r2-shared-js": "^1.0.51",
+    "r2-shared-js": "1.0.51",
     "recursive-readdir": "^2.2.2",
     "sanitize-html": "^2.3.3",
     "sass": "^1.54.4",
