@@ -35,7 +35,7 @@ import { ISelectionInfo } from "../highlight/common/selection";
 import { SHA256 } from "jscrypto";
 import { reset, searchDocDomSeek } from "./searchWithDomSeek";
 import log from "loglevel";
-
+import i18n from "../../i18n";
 export interface SearchModuleAPI {}
 
 export interface SearchModuleProperties {
@@ -185,7 +185,7 @@ export class SearchModule implements ReaderModule {
       if (paginated.total === 0) {
         const linkElement: HTMLAnchorElement = document.createElement("a");
         linkElement.className = "collection-item";
-        linkElement.innerHTML = "nothing found"; //self.delegate.translateModule.reader_search_nothing_found
+        linkElement.innerHTML = i18n.t("nothing_found"); //self.delegate.translateModule.reader_search_nothing_found
         searchResultDiv.appendChild(linkElement);
       } else {
         for (let index = 0; index < paginated.data.length; index++) {
@@ -547,7 +547,7 @@ export class SearchModule implements ReaderModule {
       if (paginated.total === 0) {
         const linkElement: HTMLAnchorElement = document.createElement("a");
         linkElement.className = "collection-item";
-        linkElement.innerHTML = "nothing found"; //self.delegate.translateModule.reader_search_nothing_found
+        linkElement.innerHTML = i18n.t("nothing_found"); //self.delegate.translateModule.reader_search_nothing_found
         searchResultBook.appendChild(linkElement);
       } else {
         const paginatedGrouped = groupBy(paginated.data, (item) => item.href);

@@ -98,6 +98,7 @@ import {
   ConsumptionModuleConfig,
 } from "../modules/consumption/ConsumptionModule";
 import KeyDownEvent = JQuery.KeyDownEvent;
+import i18n from "../i18n";
 
 export type GetContent = (href: string) => Promise<string>;
 export type GetContentBytesLength = (
@@ -1479,7 +1480,7 @@ export class IFrameNavigator extends EventEmitter implements Navigator {
             "(" + this.currentChapterLink.title + ")";
       } else {
         if (this.chapterTitle)
-          this.chapterTitle.innerHTML = "(Current Chapter)";
+          this.chapterTitle.innerHTML = i18n.t("current_chapter");
       }
 
       await this.injectInjectablesIntoIframeHead(iframe);
@@ -2738,8 +2739,8 @@ export class IFrameNavigator extends EventEmitter implements Navigator {
           const currentPage = locator.displayInfo.resourceScreenIndex;
           const pageCount = locator.displayInfo.resourceScreenCount;
           if (this.chapterPosition) {
-            this.chapterPosition.innerHTML =
-              "Page " + currentPage + " of " + pageCount;
+            this.chapterPosition.innerHTML = i18n.t('chapter_position', {currentPage: '13', pageCount:'14'});
+              //"Page " + currentPage + " of " + pageCount;
           }
         }
       } else {
@@ -3040,7 +3041,7 @@ export class IFrameNavigator extends EventEmitter implements Navigator {
               "(" + this.currentChapterLink.title + ")";
         } else {
           if (this.chapterTitle)
-            this.chapterTitle.innerHTML = "(Current Chapter)";
+            this.chapterTitle.innerHTML = i18n.t("current_chapter");
         }
         await this.updatePositionInfo();
       } else {
