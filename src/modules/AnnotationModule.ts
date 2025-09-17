@@ -913,16 +913,17 @@ export class AnnotationModule implements ReaderModule {
                   title.appendChild(marker);
                   bookmarkLink.appendChild(title);
 
-                  let subtitle: HTMLSpanElement =
-                    document.createElement("span");
+                  let subtitle: HTMLSpanElement = document.createElement("span");
                   let formattedProgression =
                     Math.round((locator.locations.progression ?? 0) * 100) +
                     "% " +
                     "through resource";
                   subtitle.className = "subtitle";
                   subtitle.innerHTML = formattedProgression;
+
                   bookmarkLink.appendChild(subtitle);
                 }
+
 
                 let timestamp: HTMLSpanElement = document.createElement("span");
                 timestamp.className = "timestamp";
@@ -930,6 +931,13 @@ export class AnnotationModule implements ReaderModule {
                   locator.created
                 );
                 bookmarkLink.appendChild(timestamp);
+                const noteText = (locator as Annotation).highlight?.note;
+                if (undefined !== noteText) {
+                  let noteElement: HTMLSpanElement = document.createElement("span");
+                  noteElement.className = "note";
+                  noteElement.innerHTML = noteText;
+                  bookmarkLink.appendChild(noteElement);
+                }
 
                 addEventListenerOptional(
                   bookmarkLink,

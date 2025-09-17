@@ -986,7 +986,156 @@
         ]
 
         let d2reader;
+        let initialAnnotations = {
+            "highlights": [
+                {
+                    "id": "35201d88-b1cc-4919-b6f7-d0c19c6b1144",
+                    "href": "OEBPS/05_TEXTOS_16.xhtml",
+                    "locations": {
+                        "progression": 0.8070739549839229
+                    },
+                    "created": "2025-09-17T08:49:54.180Z",
+                    "type": "application/xhtml+xml",
+                    "highlight": {
+                        "color": {
+                            "red": 252,
+                            "green": 227,
+                            "blue": 0
+                        },
+                        "id": "R2_HIGHLIGHT_595d4766e32591dbeaf10ab148fd5aca288b54dee2d896b14c40eec69e74205f",
+                        "pointerInteraction": true,
+                        "selectionInfo": {
+                            "rangeInfo": {
+                                "endContainerChildTextNodeIndex": 0,
+                                "endContainerElementCssSelector": ".CaptSalta:nth-child(237)",
+                                "endOffset": 55,
+                                "startContainerChildTextNodeIndex": 0,
+                                "startContainerElementCssSelector": ".CaptSalta:nth-child(237)",
+                                "startOffset": 20
+                            },
+                            "cleanText": "agree that the compulsory extension",
+                            "rawText": "agree that the compulsory extension",
+                            "range": []
+                        },
+                        "marker": 0,
+                        "type": 0,
+                        "position": 251
+                    },
+                    "text": {
+                        "highlight": "agree that the compulsory extension"
+                    }
+                },
+                {
+                    "id": "dd426b7c-bd01-429b-a637-db725f243eea",
+                    "href": "OEBPS/05_TEXTOS_16.xhtml",
+                    "locations": {
+                        "progression": 0.5884244372990354
+                    },
+                    "created": "2025-09-17T08:58:29.734Z",
+                    "type": "application/xhtml+xml",
+                    "highlight": {
+                        "color": "#00d51d",
+                        "id": "R2_HIGHLIGHT_1b4a7f4755f06de7428e5c671f61b874ec8f0bbbe506aa48555fceaf79b8588a",
+                        "pointerInteraction": true,
+                        "selectionInfo": {
+                            "rangeInfo": {
+                                "endContainerChildTextNodeIndex": 0,
+                                "endContainerElementCssSelector": ".CaptTexto:nth-child(236)",
+                                "endOffset": 77,
+                                "startContainerChildTextNodeIndex": 0,
+                                "startContainerElementCssSelector": ".CaptTexto:nth-child(236)",
+                                "startOffset": 68
+                            },
+                            "cleanText": "cause for",
+                            "rawText": "cause for",
+                            "range": []
+                        },
+                        "marker": 3,
+                        "icon": {
+                            "title": "Checkmark",
+                            "svgPath": "<path d=\"M0 0h24v24H0V0z\" fill=\"none\"/><path d=\"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z\"/>",
+                            "color": "#00d51d",
+                            "class": "red",
+                            "position": "inline",
+                            "id": "checkIcon"
+                        },
+                        "popup": {
+                            "background": "#d50080",
+                            "textColor": "#000000"
+                        },
+                        "style": {
+                            "default": [
+                                {
+                                    "property": "border-bottom",
+                                    "value": "2px dotted #00d51d",
+                                    "priority": "important"
+                                }
+                            ]
+                        },
+                        "type": 0,
+                        "position": 183
+                    },
+                    "text": {
+                        "highlight": "cause for"
+                    }
+                },
+                {
+                    "id": "5baf48d8-0fd0-45e1-a0ec-9d5f971083b0",
+                    "href": "OEBPS/05_TEXTOS_16.xhtml",
+                    "locations": {
+                        "progression": 0.5144694533762058
+                    },
+                    "created": "2025-09-17T08:57:14.479Z",
+                    "type": "application/xhtml+xml",
+                    "highlight": {
+                        "color": "#ffd700",
+                        "id": "R2_HIGHLIGHT_dfe9c93b6e9e3befa656ba9527e7cbca769e1ff9fdc197c87132e9423c6923c3",
+                        "pointerInteraction": true,
+                        "selectionInfo": {
+                            "rangeInfo": {
+                                "endContainerChildTextNodeIndex": 0,
+                                "endContainerElementCssSelector": ".CaptSalta:nth-child(239)",
+                                "endOffset": 33,
+                                "startContainerChildTextNodeIndex": 0,
+                                "startContainerElementCssSelector": ".CaptSalta:nth-child(239)",
+                                "startOffset": 11
+                            },
+                            "cleanText": "Landlord is obliged to",
+                            "rawText": "Landlord is obliged to",
+                            "range": []
+                        },
+                        "marker": 3,
+                        "icon": {
+                            "title": "Star",
+                            "svgPath": "<g><path d=\"M0,0h24v24H0V0z\" fill=\"none\"/><path d=\"M0,0h24v24H0V0z\" fill=\"none\"/></g><g><path d=\"M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z\"/></g>",
+                            "color": "#ffd700",
+                            "position": "right",
+                            "id": "starIcon"
+                        },
+                        "popup": {
+                            "background": "#ffd700",
+                            "textColor": "#000000"
+                        },
+                        "style": {
+                            "default": [
+                                {
+                                    "property": "border-bottom",
+                                    "value": "1px solid #ffd700",
+                                    "priority": "important"
+                                }
+                            ]
+                        },
+                        "type": 0,
+                        "position": 160
+                    },
+                    "text": {
+                        "highlight": "Landlord is obliged to"
+                    }
+                }
+            ]
+        };
         D2Reader.load({
+            initialAnnotations: initialAnnotations,
             url: new URL(urlParams["url"]),
             requestConfig: {
                 method: "GET",
