@@ -932,7 +932,7 @@ export class AnnotationModule implements ReaderModule {
                 );
                 bookmarkLink.appendChild(timestamp);
                 const noteText = (locator as Annotation).highlight?.note;
-                if (undefined !== noteText) {
+                if (undefined !== noteText && null !== noteText) {
                   let noteElement: HTMLSpanElement = document.createElement("span");
                   noteElement.className = "note";
                   noteElement.innerHTML = noteText;
