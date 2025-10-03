@@ -58,6 +58,10 @@ export class TTSModule2 implements ReaderModule {
   private wrapper: HTMLDivElement;
 
   initialize(body: any) {
+    if (typeof window.speechSynthesis === 'undefined') {
+      return;
+    }
+
     if (this.highlighter !== undefined) {
       this.tts.setControls();
       this.tts.onRestart(this.restart.bind(this));
@@ -66,10 +70,8 @@ export class TTSModule2 implements ReaderModule {
         allowedTags: [],
         allowedAttributes: {},
       });
-      this.wrapper = HTMLUtilities.findRequiredElement(
-        document,
-        "#iframe-wrapper"
-      );
+
+      this.wrapper = HTMLUtilities.findRequiredElement(document, "#iframe-wrapper");
 
       window.speechSynthesis.getVoices();
       this.initVoices(true);
@@ -85,11 +87,7 @@ export class TTSModule2 implements ReaderModule {
           this.wheel.bind(this)
         );
       }
-      addEventListenerOptional(
-        this.body,
-        "mousedown",
-        this.clickStart.bind(this)
-      );
+      addEventListenerOptional(this.body, "mousedown", this.clickStart.bind(this));
       addEventListenerOptional(this.body, "mouseup", this.click.bind(this));
     }
   }
@@ -114,6 +112,7 @@ export class TTSModule2 implements ReaderModule {
     }
 
     if (
+      "undefined" !== window.speechSynthesis &&
       window.speechSynthesis.speaking &&
       this.speaking &&
       startX === this.startX &&
@@ -167,7 +166,7 @@ export class TTSModule2 implements ReaderModule {
           );
           selection.removeAllRanges();
 
-          if (idx >= 0) {
+          if (idx >= 0 && "undefined" !== window.speechSynthesis) {
             window.speechSynthesis.cancel();
             this.restartIndex = idx;
             this.ttsPlayQueueIndexDebounced(this.restartIndex, this.ttsQueue);
@@ -178,6 +177,10 @@ export class TTSModule2 implements ReaderModule {
   }
 
   private initVoices(first: boolean) {
+    if (typeof window.speechSynthesis === 'undefined') {
+      return;
+    }
+
     function setSpeech() {
       return new Promise(function (resolve, _reject) {
         let synth = window.speechSynthesis;
