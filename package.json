@@ -1,8 +1,8 @@
 {
   "name": "@d-i-t-a/reader",
-  "version": "2.4.10",
+  "version": "x1.2",
   "description": "A viewer application for EPUB files.",
-  "repository": "https://github.com/d-i-t-a/R2D2BC",
+  "repository": "https://github.com/jjbier/R2D2BC",
   "license": "Apache-2.0",
   "main": "dist/esm/index.js",
   "typings": "dist/types/index.d.ts",
