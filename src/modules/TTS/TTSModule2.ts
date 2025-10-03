@@ -112,7 +112,7 @@ export class TTSModule2 implements ReaderModule {
     }
 
     if (
-      "undefined" !== window.speechSynthesis &&
+      ("undefined" !== typeof window.speechSynthesis) &&
       window.speechSynthesis.speaking &&
       this.speaking &&
       startX === this.startX &&
@@ -166,7 +166,7 @@ export class TTSModule2 implements ReaderModule {
           );
           selection.removeAllRanges();
 
-          if (idx >= 0 && "undefined" !== window.speechSynthesis) {
+          if (idx >= 0 && ("undefined" !== typeof window.speechSynthesis)) {
             window.speechSynthesis.cancel();
             this.restartIndex = idx;
             this.ttsPlayQueueIndexDebounced(this.restartIndex, this.ttsQueue);
